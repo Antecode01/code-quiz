@@ -17,24 +17,25 @@ var index = 0;
 
 var questionsArr = [
   {
-    title: "what is the capital of the US",
-    options: ["Seattle", "Denver", "Pheonix", "Washington DC"],
-    answer: "Washington DC",
+    title:
+      "what is the HTML tag under which one can write the javascript code ?",
+    options: ["scripted", "javascript", "script", "js"],
+    answer: "script",
   },
   {
-    title: "what is the capital of Colorado",
-    options: ["aurora", "boulder", "denver", "pablo"],
-    answer: "denver",
+    title: "which of the following is not a reserved word in javascript",
+    options: ["interface", "throws", "program", "short"],
+    answer: "program",
   },
   {
     title: "What is a self closing tag?",
     options: ["html", "img", "p", "h1"],
-    answer: "<img>",
+    answer: "img",
   },
   {
-    title: "Who is right?",
-    options: ["me", "you", "not me", "i dont know"],
-    answer: "me",
+    title: "how do we write an IF statement in javascript?",
+    options: ["if i=5 then", "ifi==5 then", "if(i==5)", "if i=5"],
+    answer: "if(i==5)",
   },
 ];
 
@@ -57,9 +58,12 @@ initialsSubmitBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
   var userInit = [(initials = initInput.value), (score = timeRemaining)];
+  userInit.textcontent;
+  localStorage.setItem("userInit", userInit);
 
   console.log(userInit);
 });
+1;
 
 function askQuestions(index) {
   questionH1.innerHTML = questionsArr[index].title;
