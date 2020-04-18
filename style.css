@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.start {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+.startBtn {
+  display: grid;
+  font-size: large;
+  background-color: blue;
+}
+.startBtn:hover {
+  border-color: black;
+}
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px;
+}
+.ans1,
+.ans2,
+.ans3,
+.ans4 {
+  background-color: blue;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  font-size: large;
+  box-shadow: 0 0 5px 2px;
+  outline: none;
+}
+.ans1:hover,
+.ans2:hover,
+.ans3:hover,
+.ans4:hover {
+  border-color: black;
+}
+.initials {
+  font-size: large;
+  padding: 5px;
+}
+.initialsSubmit {
+  display: grid;
+  font-size: large;
+  background-color: brown;
+}
+.initialsSubmit:hover {
+  border-color: black;
+}
+.lastScore {
+  font-size: large;
+  font-weight: bolder;
+}

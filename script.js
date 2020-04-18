@@ -12,6 +12,7 @@ var initials = document.querySelector(".initials");
 var initialsSubmitBtn = document.querySelector(".initialsSubmit");
 var form = document.querySelector(".form");
 var initInput = document.querySelector(".initInput");
+var lastScore = document.querySelector(".lastScore");
 var timeRemaining = 60;
 var index = 0;
 
@@ -54,16 +55,6 @@ startBtn.addEventListener("click", function (event) {
     }
   }, 1000);
 });
-initialsSubmitBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-
-  var userInit = [(initials = initInput.value), (score = timeRemaining)];
-  userInit.textcontent;
-  localStorage.setItem("userInit", userInit);
-
-  console.log(userInit);
-});
-1;
 
 function askQuestions(index) {
   questionH1.innerHTML = questionsArr[index].title;
@@ -71,18 +62,36 @@ function askQuestions(index) {
   answer2.innerHTML = questionsArr[index].options[1];
   answer3.innerHTML = questionsArr[index].options[2];
   answer4.innerHTML = questionsArr[index].options[3];
+}
 
-  answersDiv.addEventListener("click", function (event) {
-    index++;
-    if (event.target.innerHTML === questionsArr[0].answer) {
-    } else {
-      timeRemaining = timeRemaining - 10;
-    }
-    if (index > questionsArr.length - 1) {
-      questionsDiv.style.display = "none";
-      initials.style.display = "block";
-    } else {
-      askQuestions(index);
-    }
-  });
+answersDiv.addEventListener("click", function (event) {
+  index++;
+  if (event.target.innerHTML === questionsArr[0].answer) {
+  } else {
+    timeRemaining = timeRemaining - 10;
+  }
+  if (index > questionsArr.length - 1) {
+    questionsDiv.style.display = "none";
+    initials.style.display = "block";
+  } else {
+    askQuestions(index);
+  }
+});
+
+initialsSubmitBtn.addEventListener("click", function (event) {
+  var userInit = { initials: initInput.value, score: timeRemaining };
+
+  localStorage.setItem("initials", JSON.stringify(userInit));
+  initials.style.display = "none";
+  startDIv.style.display = "block";
+});
+
+var localStorageScore = JSON.parse(localStorage.getItem("initials"));
+
+if (localStorageScore !== null) {
+  lastScore.innerHTML =
+    "Last score was: " +
+    localStorageScore.score +
+    " by: " +
+    localStorageScore.initials;
 }
